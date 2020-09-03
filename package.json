@@ -1,0 +1,20 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "code.js",
+  "dependencies": {
+    "animate.css": "^4.1.0",
+    "bulma": "^0.9.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1"
+  },
+  "devDependencies": {
+    "webpack": "^4.44.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pavel Yakupov",
+  "license": "ISC"
+}
