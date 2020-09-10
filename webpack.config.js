@@ -1,9 +1,10 @@
 const path = require('path');
 
 module.exports = {
-  entry: './path/to/my/entry/file.js',
+  entry: './code.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'my-first-webpack.bundle.js'
-  }
+    filename: 'index.bundle.js'
+  },
+  watch: true
 };

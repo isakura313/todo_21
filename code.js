@@ -1,6 +1,8 @@
 'use strict'
+
 //  const ItemDeal = require('./ItemDeal').default;
 //  module.exports = ItemDeal;
+import ItemDeal from './ItemDeal';
 
 const motivation_array = [
   "кто с утра, то не выспался",
@@ -33,7 +35,9 @@ let deals = document.getElementById("#deals");
 //получает из объект localStorage данные по ключу
 //ключ - время создания в Unix - времени
 // значение - экземпляр класса ItemDeal
+//getItem(key) – получить данные по ключу key
+//key(index) – получить ключ на заданной позиции.
 
-function (params) {
+// function (params) {
   
-}
+// }
