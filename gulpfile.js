@@ -2,6 +2,7 @@ const gulp = require("gulp");
 const concat = require("gulp-concat");
 const rename = require("gulp-rename");
 const cssmin = require("gulp-cssmin");
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 const paths = {
     styles: {
@@ -39,3 +40,16 @@ const paths = {
   // exports.build = build;
 
   // exports.default = build;
+
+  module.exports = {
+    // ...
+    plugins: [
+      new BrowserSyncPlugin({
+        // browse to http://localhost:3000/ during development,
+        // ./public directory is being served
+        host: 'localhost',
+        port: 3000,
+        server: { baseDir: ['public'] }
+      })
+    ]
+  }
