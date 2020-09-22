@@ -104,6 +104,13 @@ function drawOnLoad(){
 drawOnLoad();
 
 function GenerateDOM(obj){
-  deals.insertAdjacentHTML('afterbegin', `<div></div>`);
+  deals.insertAdjacentHTML('afterbegin', `<div class="has-background-white wrap_task"> 
+  <div class="task is-size-4">
+<p> <span class="${IA[obj.color]}"> ${obj.name} </span>
+    ${obj.now.getDate()} ${Month_Array[obj.now.getMonth()]}
+    </p>
+  </div>
+  <i class="material-icons">delete</i>
+  </div>`);
 }
 
