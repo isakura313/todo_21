@@ -22,13 +22,13 @@ const animation_array = [
   "animate__flipOutX",
 ];
 
-let select = document.getElementById("#important");
+const select = document.getElementById("important");
 
-let field = document.querySelector("input");
+const field = document.querySelector("input");
 
-let button = document.querySelector(".button_plus");
+const button = document.querySelector(".button_plus");
 
-let deals = document.getElementById("#deals");
+const deals = document.getElementById("deals");
 
 const Month_Array = [
   "Января",
@@ -69,9 +69,9 @@ function addTask() {
     //тогда логическое выражения выполнится и функция прервет работу
     return;
   }
-  let todo = new ItemDeal((color = select.value - 1), (text = content));
+  let todo = new ItemDeal(content, select.value - 1);
   let todo_to_JSON = JSON.stringify(todo);
-  localStorage.setItem(+item.now, todo_to_JSON);
+  localStorage.setItem(+todo.now, todo_to_JSON);
   GenerateDOM(todo);
   field.value = '';
 }
@@ -91,7 +91,7 @@ document.addEventListener("keypress", (event) => {
 //заново генерируем Date 
 //отобразить GenerateDOM
 function drawOnLoad(){
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < localStorage.length; i++) {
     //Приняв число i, метод вернёт имя по номеру ключа в localStorage
     let lk_ley = localStorage.key(i);
     let content = localStorage.getItem(lk_ley);
@@ -103,14 +103,22 @@ function drawOnLoad(){
 }
 drawOnLoad();
 
+
+
 function GenerateDOM(obj){
-  deals.insertAdjacentHTML('afterbegin', `<div class="has-background-white wrap_task"> 
-  <div class="task is-size-4">
-<p> <span class="${IA[obj.color]}"> ${obj.name} </span>
-    ${obj.now.getDate()} ${Month_Array[obj.now.getMonth()]}
-    </p>
-  </div>
-  <i class="material-icons">delete</i>
+  deals.insertAdjacentHTML('afterbegin', `
+  <div class="has-background-white wrap_task has-text-black"> 
+
+  <p class="${important_color[obj.color]} "> ${obj.text} </p>
+  <p>  ${obj.now.getDate()} ${Month_Array[obj.now.getMonth()]} </p>
+
+  <div>  <i class="material-icons">delete</i> </div>
   </div>`);
 }
 
+deals.addEventListener('click', (e)=>{
+  console.log(e);
+  let wrap_task = e.target.closest(".wrap_task");
+  wrap_task.remove();
+
+})

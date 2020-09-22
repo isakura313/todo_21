@@ -28,3 +28,20 @@ body{
 .button_plus{
     height: 50px;
 }
+#deals{
+    margin-top: 3rem;
+}
+.wrap_task{
+    margin-bottom: 1em;
+    box-shadow: 2px 3px 10px black;
+    display: grid;
+    grid-template-columns: 60% 30% 10%;
+    padding: 20px 10px;
+}
+.material-icons{
+    cursor: pointer;
+    font-size: 30px;
+}
+.material-icons:hover{
+    color:red;
+}
