@@ -3,11 +3,12 @@
 //  const ItemDeal = require('./ItemDeal').default;
 //  module.exports = ItemDeal;
 import ItemDeal from "./ItemDeal";
+import getRandom from "./nordic_random";
 
 const motivation_array = [
-  "кто с утра, то не выспался",
+  "кто с утра рано встает, то не выспался",
   "кто с утра встает, другим спать не дает",
-  "в силикиновой недвижимость подешевела",
+  "в силикиновой долине недвижимость подешевела",
 ];
 
 const important_color = [
@@ -21,6 +22,8 @@ const animation_array = [
   "animate__zoomOutLeft",
   "animate__flipOutX",
 ];
+
+const mot_speech = document.querySelector(".Mot_speech");
 
 const select = document.getElementById("important");
 
@@ -44,6 +47,11 @@ const Month_Array = [
   "Ноября",
   "Декабря",
 ];
+
+//пишем смену наших цитат
+setInterval(() => {
+  mot_speech.innerHTML = motivation_array[getRandom(0, motivation_array.length-1  )]
+}, 5000);
 
 //получает из объект localStorage данные по ключу
 //ключ - время создания в Unix - времени
@@ -79,7 +87,8 @@ function addTask() {
 button.addEventListener("click", addTask);
 //дальше вешаем события на Enter
 document.addEventListener("keypress", (event) => {
-  if(event.code == 13){
+  console.log(event);
+  if(event.key == "Enter"){
     addTask();
     //https://keycode.info/
   }
@@ -107,7 +116,7 @@ drawOnLoad();
 
 function GenerateDOM(obj){
   deals.insertAdjacentHTML('afterbegin', `
-  <div class="has-background-white wrap_task has-text-black"> 
+  <div class="has-background-white wrap_task has-text-black" id=${+obj.now}> 
 
   <p class="${important_color[obj.color]} "> ${obj.text} </p>
   <p>  ${obj.now.getDate()} ${Month_Array[obj.now.getMonth()]} </p>
@@ -117,8 +126,10 @@ function GenerateDOM(obj){
 }
 
 deals.addEventListener('click', (e)=>{
-  console.log(e);
-  let wrap_task = e.target.closest(".wrap_task");
+
+  let trash = e.target.closest(".material-icons");
+  let wrap_task = trash.parentNode.parentNode;
   wrap_task.remove();
+  localStorage.removeItem(wrap_task.getAttribute("id"));
 
 })
