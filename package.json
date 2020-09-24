@@ -14,6 +14,9 @@
   },
   "devDependencies": {
     "gulp-cssmin": "^0.2.0",
+    "prettier": "^2.1.2",
+    "ts-loader": "^8.0.4",
+    "typescript": "^4.0.3",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   },
