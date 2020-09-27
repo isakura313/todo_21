@@ -20,13 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da62016e-d3f7-4be2-9cb3-45bbc1cc615d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ItemDeal.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItemDeal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code.js" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_js/data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src_js/random_data.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ItemDeal.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src_js/ItemDeal.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/index.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +55,11 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src_js" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -63,17 +71,13 @@
       <workItem from="1600859916389" duration="4420000" />
       <workItem from="1600866598080" duration="865000" />
       <workItem from="1600870519641" duration="3850000" />
+      <workItem from="1601135063368" duration="2456000" />
+      <workItem from="1601146522316" duration="15522000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/code.js" />
-        <option value="$PROJECT_DIR$/ItemDeal.js" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -88,13 +92,21 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="149" y="1" key="SettingsEditor" timestamp="1600877262101">
+    <state x="392" y="146" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601152176059">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="149" y="1" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1600877262101" />
-    <state x="301" y="0" width="838" height="1032" key="search.everywhere.popup" timestamp="1600865034800">
+    <state x="392" y="146" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1601152176059" />
+    <state x="149" y="1" key="SettingsEditor" timestamp="1601146896334">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="301" y="0" width="838" height="1032" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1600865034800" />
+    <state x="149" y="1" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1601146896334" />
+    <state x="342" y="139" width="755" height="622" key="find.popup" timestamp="1601151214845">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="342" y="139" width="755" height="622" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1601151214845" />
+    <state x="301" y="0" width="838" height="1032" key="search.everywhere.popup" timestamp="1601232259947">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="301" y="0" width="838" height="1032" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1601232259947" />
   </component>
 </project>

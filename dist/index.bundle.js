@@ -86,18 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./ItemDeal.ts":
-/*!*********************!*\
-  !*** ./ItemDeal.ts ***!
-  \*********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nvar ItemDeal = /** @class */ (function () {\n    /*\n      класс конструктор, собирает\n      нам объект todo с текстом,\n      цветом срочности, временем\n  \n      */\n    function ItemDeal(text, color) {\n        this.text = text;\n        this.color = color;\n        this.stamp = new Date();\n    }\n    return ItemDeal;\n}());\n/* harmony default export */ __webpack_exports__[\"default\"] = (ItemDeal);\n\n\n//# sourceURL=webpack:///./ItemDeal.ts?");
-
-/***/ }),
-
 /***/ "./code.ts":
 /*!*****************!*\
   !*** ./code.ts ***!
@@ -106,7 +94,42 @@ eval("__webpack_require__.r(__webpack_exports__);\nvar ItemDeal = /** @class */ 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ItemDeal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ItemDeal */ \"./ItemDeal.ts\");\n\nvar motivation_array = [\n    \"кто с утра, то не выспался\",\n    \"кто с утра встает, другим спать не дает\",\n    \"в силикиновой недвижимость подешевела\",\n];\nvar important_color = [\n    \"has-text-danger\",\n    \"has-text-warning\",\n    \"has-text-success\",\n];\nvar animation_array = [\n    \"animate__zoomOut\",\n    \"animate__zoomOutLeft\",\n    \"animate__flipOutX\",\n];\nvar select = (document.getElementById(\"important\"));\nvar field = (document.querySelector(\"input\"));\nvar button = document.querySelector(\".button_plus\");\nvar deals = document.getElementById(\"deals\");\nvar MotSpeech = document.querySelector(\".Mot_speech\");\nvar Month_Array = [\n    \"Января\",\n    \"Февраля\",\n    \"Марта\",\n    \"Апреля\",\n    \"Мая\",\n    \"Июня\",\n    \"Июля\",\n    \"Августа\",\n    \"Сентября\",\n    \"Октября\",\n    \"Ноября\",\n    \"Декабря\",\n];\nsetInterval(function () {\n    MotSpeech.textContent = motivation_array[getRandom(motivation_array.length)];\n}, 3000);\nfunction addTask() {\n    var content = field.value;\n    if (content === \"\") {\n        return;\n    }\n    var todo = new _ItemDeal__WEBPACK_IMPORTED_MODULE_0__[\"default\"](content, parseInt(select.value) - 1);\n    var todo_to_JSON = JSON.stringify(todo);\n    localStorage.setItem(todo.stamp.getTime().toString(), todo_to_JSON);\n    GenerateDOM(todo);\n    field.value = \"\";\n}\nbutton.addEventListener(\"click\", addTask);\ndocument.addEventListener(\"keydown\", function (e) {\n    if (e.key == \"Enter\") {\n        addTask();\n    }\n});\n//показать сохраненные дела - общая задача\n//подзадачи\n//нужно взять дела из localStorage - for\n//парсим из JSON\n//заново генерируем Date\n//отобразить GenerateDOM\n(function drawOnLoad() {\n    for (var i = 0; i < localStorage.length; i++) {\n        var lk_ley = localStorage.key(i);\n        var content = localStorage.getItem(lk_ley);\n        var todo = JSON.parse(content);\n        var tempo_data = Date.parse(todo.stamp);\n        todo.stamp = new Date(tempo_data);\n        GenerateDOM(todo);\n    }\n})();\nfunction GenerateDOM(obj) {\n    deals.insertAdjacentHTML(\"afterbegin\", \"\\n  <div class=\\\"has-background-white wrap_task has-text-black\\\" id=\\\"\" + Number(obj.stamp) + \"\\\"> \\n\\n  <p class=\\\"\" + important_color[obj.color] + \" \\\"> \" + obj.text + \" </p>\\n  <p>  \" + obj.stamp.getDate() + \" \" + Month_Array[obj.stamp.getMonth()] + \" </p>\\n\\n  <div>  <i class=\\\"material-icons\\\">delete</i> </div>\\n  </div>\");\n}\ndeals.addEventListener(\"click\", function (event) {\n    var target = event.target;\n    var wrap_task = target.closest(\".wrap_task\");\n    localStorage.removeItem(wrap_task.getAttribute(\"id\"));\n    wrap.setInterval(function () {\n        wrap_task.style.display = \"none\";\n    }, 1000);\n});\nfunction getRandom(max) {\n    return Math.ceil(Math.random() * max - 1);\n}\n\n\n//# sourceURL=webpack:///./code.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _src_js_ItemDeal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src_js/ItemDeal */ \"./src_js/ItemDeal.ts\");\n/* harmony import */ var _src_js_random_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./src_js/random_data */ \"./src_js/random_data.ts\");\n\n\nvar json = __webpack_require__(/*! ./src_js/data.json */ \"./src_js/data.json\");\nvar motivation_array = json.motivation_array, important_color = json.important_color, animation_intro = json.animation_intro, animation_out = json.animation_out, Month_Array = json.Month_Array;\nvar select = (document.getElementById(\"important\"));\nvar field = (document.querySelector(\"input\"));\nvar button = (document.querySelector(\".button_plus\"));\nvar deals = document.querySelector(\"#deals\");\nvar MotSpeech = (document.querySelector(\".Mot_speech\"));\nsetInterval(function () {\n    // смена цитат раз в три секунды\n    MotSpeech.textContent = motivation_array[Object(_src_js_random_data__WEBPACK_IMPORTED_MODULE_1__[\"getUniq\"])(motivation_array)];\n}, 3000);\nfunction addTask() {\n    var content = field.value;\n    if (content === \"\") {\n        return;\n    }\n    var todo = new _src_js_ItemDeal__WEBPACK_IMPORTED_MODULE_0__[\"default\"](content, parseInt(select.value) - 1);\n    var todo_to_JSON = JSON.stringify(todo);\n    localStorage.setItem(todo.stamp.getTime().toString(), todo_to_JSON);\n    GenerateDOM(todo, true);\n    field.value = \"\";\n    select.focus();\n}\nbutton.addEventListener(\"click\", addTask);\ndocument.addEventListener(\"keydown\", function (e) {\n    if (e.key === \"Enter\") {\n        addTask();\n    }\n});\n(function drawOnLoad() {\n    for (var i = 0; i < localStorage.length; i++) {\n        var lk_ley = localStorage.key(i);\n        var content = localStorage.getItem(lk_ley);\n        var todo = JSON.parse(content);\n        var tempo_data = Date.parse(todo.stamp);\n        todo.stamp = new Date(tempo_data);\n        GenerateDOM(todo);\n    }\n})();\nfunction GenerateDOM(obj, anim) {\n    if (anim === void 0) { anim = false; }\n    var text = obj.text, color = obj.color, stamp = obj.stamp;\n    deals.insertAdjacentHTML(\"afterbegin\", \"\\n  <div class=\\\"has-background-white \" + (anim\n        ? animation_intro[Object(_src_js_random_data__WEBPACK_IMPORTED_MODULE_1__[\"getRandom\"])(0, animation_intro.length)] +\n            \" animate__animated\"\n        : \"\") + \" wrap_task has-text-black\\\" id=\\\"\" + Number(stamp) + \"\\\"> \\n\\n  <p class=\\\"\" + important_color[color] + \" \\\"> \" + text + \" </p>\\n  <p>  \" + stamp.getDate() + \" \" + Month_Array[stamp.getMonth()] + \" </p>\\n\\n  <div>  <i class=\\\"material-icons\\\">delete</i> </div>\\n  </div>\");\n}\ndeals.addEventListener(\"click\", function (event) {\n    var target = event.target;\n    try {\n        var thrash = target.closest(\".material-icons\");\n        var wrap_task_1 = thrash.parentElement.parentElement;\n        localStorage.removeItem(wrap_task_1.getAttribute(\"id\"));\n        wrap_task_1.classList.add(\"animate__animated\");\n        wrap_task_1.classList.add(animation_out[Object(_src_js_random_data__WEBPACK_IMPORTED_MODULE_1__[\"getRandom\"])(0, animation_out.length)]);\n        setInterval(function () {\n            wrap_task_1.style.display = \"none\";\n        }, 1000);\n    }\n    catch (e) {\n        console.log(\"ты куда тыкаешь\");\n    }\n});\nfunction ChangeColorSelect(el) {\n    switch (el.value) {\n        case \"1\":\n            console.log(el);\n            el.parentElement.className = \"select is-danger\";\n            break;\n        case \"2\":\n            el.parentElement.className = \"select is-warning\";\n            break;\n        case \"3\":\n            el.parentElement.className = \"select is-primary\";\n            break;\n        default:\n            break;\n    }\n}\ndocument.addEventListener(\"DOMContentLoaded\", function () {\n    ChangeColorSelect(select);\n    select.focus();\n});\nselect.onchange = function () {\n    ChangeColorSelect(select);\n};\nselect.addEventListener(\"keydown\", function (e) {\n    if (e.key === \"1\") {\n        select.value = \"1\";\n        ChangeColorSelect(select);\n    }\n    else if (e.key == \"2\") {\n        select.value = \"2\";\n        ChangeColorSelect(select);\n    }\n    else if (e.key == \"3\") {\n        select.value = \"3\";\n        ChangeColorSelect(select);\n    }\n});\n\n\n//# sourceURL=webpack:///./code.ts?");
+
+/***/ }),
+
+/***/ "./src_js/ItemDeal.ts":
+/*!****************************!*\
+  !*** ./src_js/ItemDeal.ts ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nvar ItemDeal = /** @class */ (function () {\n    /*\n      класс конструктор, собирает\n      нам объект todo с текстом,\n      цветом срочности, временем\n      */\n    function ItemDeal(text, color) {\n        this.text = text;\n        this.color = color;\n        this.stamp = new Date();\n    }\n    return ItemDeal;\n}());\n/* harmony default export */ __webpack_exports__[\"default\"] = (ItemDeal);\n\n\n//# sourceURL=webpack:///./src_js/ItemDeal.ts?");
+
+/***/ }),
+
+/***/ "./src_js/data.json":
+/*!**************************!*\
+  !*** ./src_js/data.json ***!
+  \**************************/
+/*! exports provided: motivation_array, important_color, animation_intro, animation_out, Month_Array, default */
+/***/ (function(module) {
+
+eval("module.exports = JSON.parse(\"{\\\"motivation_array\\\":[\\\"кто с утра встал, тот не выспался\\\",\\\"кто с утра встает, другим спать не дает\\\",\\\"в силикиновой долине недвижимость подешевела\\\",\\\"разработка сейчас выглядит так, что лучше даже не думать\\\",\\\"без труда не вытащишь даже рыбку без труда\\\"],\\\"important_color\\\":[\\\"has-text-danger\\\",\\\"has-text-warning\\\",\\\"has-text-success\\\"],\\\"animation_intro\\\":[\\\"animate__fadeIn\\\",\\\"animate__zoomIn\\\",\\\"animate__flipInX\\\"],\\\"animation_out\\\":[\\\"animate__zoomOut\\\",\\\"animate__zoomOutLeft\\\",\\\"animate__flipOutX\\\"],\\\"Month_Array\\\":[\\\"Января\\\",\\\"Февраля\\\",\\\"Марта\\\",\\\"Апреля\\\",\\\"Мая\\\",\\\"Июня\\\",\\\"Июля\\\",\\\"Августа\\\",\\\"Сентября\\\",\\\"Октября\\\",\\\"Ноября\\\",\\\"Декабря\\\"]}\");\n\n//# sourceURL=webpack:///./src_js/data.json?");
+
+/***/ }),
+
+/***/ "./src_js/random_data.ts":
+/*!*******************************!*\
+  !*** ./src_js/random_data.ts ***!
+  \*******************************/
+/*! exports provided: getRandom, getUniq */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getRandom\", function() { return getRandom; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getUniq\", function() { return getUniq; });\nfunction getRandom(min, max) {\n    if (min === void 0) { min = 0; }\n    // получить случайное число от (min-0.5) до (max+0.5)\n    var rand = min - 0.5 + Math.random() * (max - min + 1);\n    return Math.round(rand);\n}\nfunction getUniq(arr) {\n    var pool = [];\n    function generatePool() {\n        for (var i = 0; i < arr.length; i++) {\n            pool[i] = i;\n        }\n        return pool;\n    }\n    pool = generatePool();\n    function getUniqRandom() {\n        if (pool.length == 0) {\n            pool = generatePool();\n            console.log(\"Перезапуск цепочки\");\n        }\n        var index = Math.floor(pool.length * Math.random());\n        var drawn = pool.splice(index, 1);\n        return drawn[0];\n    }\n    return getUniqRandom();\n}\n\n\n\n//# sourceURL=webpack:///./src_js/random_data.ts?");
 
 /***/ })
 

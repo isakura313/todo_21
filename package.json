@@ -5,6 +5,7 @@
   "main": "code.js",
   "dependencies": {
     "animate.css": "^4.1.0",
+    "animejs": "^3.2.0",
     "bulma": "^0.9.0",
     "del": "^5.1.0",
     "font-awesome": "^4.7.0",

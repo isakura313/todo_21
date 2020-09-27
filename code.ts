@@ -1,22 +1,14 @@
-import ItemDeal from "./ItemDeal";
+import ItemDeal from "./src_js/ItemDeal";
+import { getRandom, getUniq } from "./src_js/random_data";
 
-const motivation_array: string[] = [
-  "кто с утра, то не выспался",
-  "кто с утра встает, другим спать не дает",
-  "в силикиновой недвижимость подешевела",
-];
-
-const important_color: string[] = [
-  "has-text-danger",
-  "has-text-warning",
-  "has-text-success",
-];
-
-const animation_array: string[] = [
-  "animate__zoomOut",
-  "animate__zoomOutLeft",
-  "animate__flipOutX",
-];
+const json = require("./src_js/data.json");
+let {
+  motivation_array,
+  important_color,
+  animation_intro,
+  animation_out,
+  Month_Array,
+} = json;
 
 const select: HTMLSelectElement = <HTMLSelectElement>(
   document.getElementById("important")
@@ -26,29 +18,20 @@ const field: HTMLInputElement = <HTMLInputElement>(
   document.querySelector("input")
 );
 
-const button: HTMLButtonElement = document.querySelector(".button_plus");
+const button: HTMLButtonElement = <HTMLButtonElement>(
+  document.querySelector(".button_plus")
+);
 
-const deals: HTMLElement = document.getElementById("deals");
+const deals: HTMLDivElement = <HTMLDivElement>document.querySelector("#deals");
 
-const MotSpeech: HTMLDivElement = document.querySelector(".Mot_speech");
-
-const Month_Array: string[] = [
-  "Января",
-  "Февраля",
-  "Марта",
-  "Апреля",
-  "Мая",
-  "Июня",
-  "Июля",
-  "Августа",
-  "Сентября",
-  "Октября",
-  "Ноября",
-  "Декабря",
-];
+const MotSpeech: HTMLDivElement = <HTMLDivElement>(
+  document.querySelector(".Mot_speech")
+);
 
 setInterval(() => {
-  MotSpeech.textContent = motivation_array[getRandom(motivation_array.length)];
+  // смена цитат раз в три секунды
+
+  MotSpeech.textContent = motivation_array[getUniq(motivation_array)];
 }, 3000);
 
 function addTask() {
@@ -59,23 +42,18 @@ function addTask() {
   let todo: ItemDeal = new ItemDeal(content, parseInt(select.value) - 1);
   let todo_to_JSON = JSON.stringify(todo);
   localStorage.setItem(todo.stamp.getTime().toString(), todo_to_JSON);
-  GenerateDOM(todo);
+  GenerateDOM(todo, true);
   field.value = "";
+  select.focus();
 }
 
 button.addEventListener("click", addTask);
 document.addEventListener("keydown", (e) => {
-  if (e.key == "Enter") {
+  if (e.key === "Enter") {
     addTask();
   }
 });
 
-//показать сохраненные дела - общая задача
-//подзадачи
-//нужно взять дела из localStorage - for
-//парсим из JSON
-//заново генерируем Date
-//отобразить GenerateDOM
 (function drawOnLoad() {
   for (let i = 0; i < localStorage.length; i++) {
     let lk_ley = localStorage.key(i);
@@ -87,16 +65,20 @@ document.addEventListener("keydown", (e) => {
   }
 })();
 
-function GenerateDOM(obj: ItemDeal) {
+function GenerateDOM(obj: ItemDeal, anim: boolean = false) {
+  let { text, color, stamp } = obj;
   deals.insertAdjacentHTML(
     "afterbegin",
     `
-  <div class="has-background-white wrap_task has-text-black" id="${Number(
-    obj.stamp
-  )}"> 
+  <div class="has-background-white ${
+    anim
+      ? animation_intro[getRandom(0, animation_intro.length)] +
+        " animate__animated"
+      : ""
+  } wrap_task has-text-black" id="${Number(stamp)}"> 
 
-  <p class="${important_color[obj.color]} "> ${obj.text} </p>
-  <p>  ${obj.stamp.getDate()} ${Month_Array[obj.stamp.getMonth()]} </p>
+  <p class="${important_color[color]} "> ${text} </p>
+  <p>  ${stamp.getDate()} ${Month_Array[stamp.getMonth()]} </p>
 
   <div>  <i class="material-icons">delete</i> </div>
   </div>`
@@ -105,13 +87,56 @@ function GenerateDOM(obj: ItemDeal) {
 
 deals.addEventListener("click", (event) => {
   const target = event.target as HTMLTextAreaElement;
-  let wrap_task = <HTMLDivElement>target.closest(".wrap_task");
-  localStorage.removeItem(wrap_task.getAttribute("id"));
-  wrap.setInterval(() => {
-    wrap_task.style.display = "none";
-  }, 1000);
+  try {
+    let thrash = <HTMLDivElement>target.closest(".material-icons");
+
+    let wrap_task = thrash.parentElement.parentElement;
+
+    localStorage.removeItem(wrap_task.getAttribute("id"));
+    wrap_task.classList.add("animate__animated");
+    wrap_task.classList.add(animation_out[getRandom(0, animation_out.length)]);
+    setInterval(() => {
+      wrap_task.style.display = "none";
+    }, 1000);
+  } catch (e) {
+    console.log("ты куда тыкаешь");
+  }
 });
 
-function getRandom(max: number) {
-  return Math.ceil(Math.random() * max - 1);
+function ChangeColorSelect(el) {
+  switch (el.value) {
+    case "1":
+      console.log(el);
+      el.parentElement.className = "select is-danger";
+      break;
+    case "2":
+      el.parentElement.className = "select is-warning";
+      break;
+    case "3":
+      el.parentElement.className = "select is-primary";
+      break;
+
+    default:
+      break;
+  }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  ChangeColorSelect(select);
+  select.focus();
+});
+select.onchange = () => {
+  ChangeColorSelect(select);
+};
+select.addEventListener("keydown", (e) => {
+  if (e.key === "1") {
+    select.value = "1";
+    ChangeColorSelect(select);
+  } else if (e.key == "2") {
+    select.value = "2";
+    ChangeColorSelect(select);
+  } else if (e.key == "3") {
+    select.value = "3";
+    ChangeColorSelect(select);
+  }
+});

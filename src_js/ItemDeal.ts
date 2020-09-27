@@ -6,7 +6,6 @@ export default class ItemDeal {
     класс конструктор, собирает
     нам объект todo с текстом,
     цветом срочности, временем
-
     */
   constructor(text: string, color: number) {
     this.text = text;
