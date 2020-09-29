@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da62016e-d3f7-4be2-9cb3-45bbc1cc615d" name="Default Changelist" comment="добавил  немного к версии typescript">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="da62016e-d3f7-4be2-9cb3-45bbc1cc615d" name="Default Changelist" comment="добавил  немного к версии typescript" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,6 +63,7 @@
       <workItem from="1601146522316" duration="15522000" />
       <workItem from="1601239486328" duration="144000" />
       <workItem from="1601280262432" duration="777000" />
+      <workItem from="1601398852191" duration="111000" />
     </task>
     <task id="LOCAL-00001" summary="добавил  немного к версии typescript">
       <created>1601239556818</created>
