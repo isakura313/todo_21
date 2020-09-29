@@ -97,7 +97,7 @@ document.addEventListener("keypress", (event) => {
 //подзадачи
 //нужно взять дела из localStorage - for
 //парсим из JSON
-//заново генерируем Date 
+//заново генерируем Date
 //отобразить GenerateDOM
 function drawOnLoad(){
   for (let i = 0; i < localStorage.length; i++) {
