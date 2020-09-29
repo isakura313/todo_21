@@ -1,5 +1,5 @@
 *{
-    
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -13,7 +13,7 @@ body{
     grid-template-rows: 80px 60px 40px;
     column-gap: 25px;
     justify-content: center;
-   
+
 }
 .select{
     font-size: 1.25rem;
@@ -38,10 +38,13 @@ body{
     grid-template-columns: 60% 30% 10%;
     padding: 20px 10px;
 }
-.material-icons{
+#icon_edit, #icon_delete{
     cursor: pointer;
     font-size: 30px;
 }
-.material-icons:hover{
+#icon_edit:hover{
+    color: forestgreen;
+}
+#icon_delete:hover{
     color:red;
 }

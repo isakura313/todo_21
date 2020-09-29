@@ -7,9 +7,9 @@
     "без труда не вытащишь даже рыбку без труда"
   ],
   "important_color":[
-    "has-text-danger",
-    "has-text-warning",
-    "has-text-success"
+    "has-background-danger  has-text-primary-light",
+    "has-background-warning has-text-black-bis",
+    "has-background-link has-text-primary-light"
   ],
   "animation_intro": [
     "animate__fadeIn",

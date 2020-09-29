@@ -75,12 +75,16 @@ function GenerateDOM(obj: ItemDeal, anim: boolean = false) {
       ? animation_intro[getRandom(0, animation_intro.length)] +
         " animate__animated"
       : ""
-  } wrap_task has-text-black" id="${Number(stamp)}"> 
+  } wrap_task has-text-black ${important_color[color]}" id="${Number(stamp)}"> 
 
-  <p class="${important_color[color]} "> ${text} </p>
+  <p class=" text_content is-size-4" > ${text} </p>
   <p>  ${stamp.getDate()} ${Month_Array[stamp.getMonth()]} </p>
 
-  <div>  <i class="material-icons">delete</i> </div>
+  <div> 
+    <i class="material-icons" id="icon_edit">edit</i>  
+    <i class="material-icons" id="icon_delete">delete</i> 
+  </div>
+
   </div>`
   );
 }
@@ -88,7 +92,7 @@ function GenerateDOM(obj: ItemDeal, anim: boolean = false) {
 deals.addEventListener("click", (event) => {
   const target = event.target as HTMLTextAreaElement;
   try {
-    let thrash = <HTMLDivElement>target.closest(".material-icons");
+    let thrash = <HTMLDivElement>target.closest("#icon_delete");
 
     let wrap_task = thrash.parentElement.parentElement;
 
@@ -98,6 +102,56 @@ deals.addEventListener("click", (event) => {
     setInterval(() => {
       wrap_task.style.display = "none";
     }, 1000);
+  } catch (e) {
+    console.log("ты куда тыкаешь");
+  }
+});
+
+deals.addEventListener("click", (event) => {
+  const target = event.target as HTMLTextAreaElement;
+  try {
+    let edit = <HTMLDivElement>target.closest("#icon_edit");
+
+    let text_content = <HTMLParagraphElement>(
+      edit.parentElement.parentElement.querySelector(".text_content")
+    );
+    text_content.setAttribute("contenteditable", "true");
+    let range, selection;
+    if (document.body.createTextRange) {
+      range = document.body.createTextRange();
+      range.moveToElementText(text_content);
+      range.select();
+    } else if (window.getSelection) {
+      selection = window.getSelection();
+      range = document.createRange();
+      range.selectNodeContents(text_content);
+      selection.removeAllRanges();
+      selection.addRange(range);
+    }
+
+    text_content.focus();
+    text_content.style.outlineColor = "red";
+    text_content.addEventListener("keydown", (e) => {
+      if (e.key == "Enter") {
+        console.log(text_content.textContent);
+        let content = localStorage.getItem(edit.parentElement.parentElement.id);
+        console.log(content);
+        let todo = JSON.parse(content);
+        todo.text = text_content.textContent;
+        localStorage.setItem(
+          edit.parentElement.parentElement.id,
+          JSON.stringify(todo)
+        );
+        text_content.setAttribute("contenteditable", "false");
+      }
+    });
+
+    // localStorage.removeItem(wrap_task.getAttribute("id"));
+    // wrap_task.classList.add("animate__animated");
+    // wrap_task.classList.add(animation_out[getRandom(0, animation_out.length)]);
+    // setInterval(() => {
+    //   wrap_task.style.display = "none";
+    // }, 1000);
   } catch (e) {
     console.log("ты куда тыкаешь");
   }

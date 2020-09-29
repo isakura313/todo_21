@@ -19,7 +19,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da62016e-d3f7-4be2-9cb3-45bbc1cc615d" name="Default Changelist" comment="добавил  немного к версии typescript" />
+    <list default="true" id="da62016e-d3f7-4be2-9cb3-45bbc1cc615d" name="Default Changelist" comment="добавил  немного к версии typescript">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src_js/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src_js/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,6 +39,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1huTJwn7LATR5UOryfp8WJ47lHM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -36,17 +47,29 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.buildTools.gulp.gulp_package_dir" value="$PROJECT_DIR$/node_modules/gulp" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
     <property name="run.prettier.on.save" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src_js" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -111,10 +134,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="342" y="139" width="755" height="622" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1601151214845" />
-    <state x="401" y="0" width="1118" height="1239" key="search.everywhere.popup" timestamp="1601239564209">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="301" y="0" width="838" height="1032" key="search.everywhere.popup" timestamp="1601412911950">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="301" y="0" width="838" height="1032" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1601232259947" />
+    <state x="301" y="0" width="838" height="1032" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1601412911950" />
     <state x="401" y="0" width="1118" height="1239" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1601239564209" />
   </component>
 </project>
