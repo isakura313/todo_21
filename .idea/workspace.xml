@@ -19,18 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da62016e-d3f7-4be2-9cb3-45bbc1cc615d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src_js/data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src_js/random_data.ts" afterDir="false" />
+    <list default="true" id="da62016e-d3f7-4be2-9cb3-45bbc1cc615d" name="Default Changelist" comment="добавил  немного к версии typescript">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItemDeal.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src_js/ItemDeal.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +63,17 @@
       <workItem from="1600870519641" duration="3850000" />
       <workItem from="1601135063368" duration="2456000" />
       <workItem from="1601146522316" duration="15522000" />
+      <workItem from="1601239486328" duration="144000" />
+      <workItem from="1601280262432" duration="777000" />
     </task>
+    <task id="LOCAL-00001" summary="добавил  немного к версии typescript">
+      <created>1601239556818</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1601239556818</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -91,6 +91,10 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="добавил  немного к версии typescript" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавил  немного к версии typescript" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="392" y="146" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601152176059">
       <screen x="0" y="0" width="1440" height="900" />
@@ -100,13 +104,18 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="149" y="1" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1601146896334" />
+    <state x="460" y="212" key="Vcs.Push.Dialog.v2" timestamp="1601239624600">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="460" y="212" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1601239624600" />
     <state x="342" y="139" width="755" height="622" key="find.popup" timestamp="1601151214845">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="342" y="139" width="755" height="622" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1601151214845" />
-    <state x="301" y="0" width="838" height="1032" key="search.everywhere.popup" timestamp="1601232259947">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="401" y="0" width="1118" height="1239" key="search.everywhere.popup" timestamp="1601239564209">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="301" y="0" width="838" height="1032" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1601232259947" />
+    <state x="401" y="0" width="1118" height="1239" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1601239564209" />
   </component>
 </project>
