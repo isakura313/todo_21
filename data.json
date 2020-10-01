@@ -2,12 +2,14 @@
   "motivation_array": [
     "кто с утра рано встает, то не выспался",
     "кто с утра встает, другим спать не дает",
-    "в силикиновой долине недвижимость подешевела"
+    "в силикиновой долине недвижимость подешевела",
+    "без труда не выловишь JS из пруда",
+    "мотивация не приходит одна"
   ],
   "important_color": [
-    "has-text-danger",
-    "has-text-warning",
-    "has-text-success"
+    "has-background-danger has-text-white is-size-3",
+    "has-background-warning has-text-black is-size-3",
+    "has-background-link has-text-white is-size-3"
   ],
   "animation_in": [
     "animate__bounceInLeft",
