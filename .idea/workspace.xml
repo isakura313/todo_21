@@ -20,20 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da62016e-d3f7-4be2-9cb3-45bbc1cc615d" name="Default Changelist" comment="добавил  немного к версии typescript">
+      <change afterPath="$PROJECT_DIR$/test/test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.bundle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_js/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src_js/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -52,7 +54,7 @@
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
     <property name="run.prettier.on.save" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -87,6 +89,8 @@
       <workItem from="1601239486328" duration="144000" />
       <workItem from="1601280262432" duration="777000" />
       <workItem from="1601398852191" duration="111000" />
+      <workItem from="1601473520547" duration="411000" />
+      <workItem from="1601474163508" duration="226000" />
     </task>
     <task id="LOCAL-00001" summary="добавил  немного к версии typescript">
       <created>1601239556818</created>
@@ -134,10 +138,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="342" y="139" width="755" height="622" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1601151214845" />
-    <state x="301" y="0" width="838" height="1032" key="search.everywhere.popup" timestamp="1601412911950">
+    <state x="301" y="0" width="838" height="1032" key="search.everywhere.popup" timestamp="1601474238203">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="301" y="0" width="838" height="1032" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1601412911950" />
+    <state x="301" y="0" width="838" height="1032" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1601474238203" />
     <state x="401" y="0" width="1118" height="1239" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1601239564209" />
   </component>
 </project>

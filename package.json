@@ -11,7 +11,8 @@
     "font-awesome": "^4.7.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
-    "gulp-rename": "^2.0.0"
+    "gulp-rename": "^2.0.0",
+    "mocha": "^8.1.3"
   },
   "devDependencies": {
     "browser-sync": "^2.26.12",
@@ -25,7 +26,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "test": "mocha"
   },
   "author": "Pavel Yakupov",
   "license": "ISC"
