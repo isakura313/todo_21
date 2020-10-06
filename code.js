@@ -107,6 +107,7 @@ function GenerateDOM(obj) {
 }
 
 deals.addEventListener("click", (e) => {
+  //  удаление дела
   let trash = e.target.closest(".icon_delete");
   let wrap_task = trash.parentNode.parentNode;
   wrap_task.remove();
@@ -114,14 +115,41 @@ deals.addEventListener("click", (e) => {
 });
 
 deals.addEventListener("click", (e) => {
+
+  // редактирование дела
   let pen = e.target.closest(".icon_edit");
   let wrap_task = pen.parentNode.parentNode;
   let todo_text = wrap_task.querySelector(".todo_text");
   todo_text.contentEditable = "true";
 
-  let data = localStorage.getItem(wrap_task.id);
-  let obj = JSON.parse(data);
-  obj.text = todo_text.textContent;
-  let obj_to_JSON = JSON.stringify(obj);
-  localStorage.setItem(wrap_task.id, obj_to_JSON);
+  let range, selection;
+  if(document.body.createTextRange){
+    range = document.body.createTextRange();
+    range.moveToElementText(todo_text);
+    range.select()
+  } else if(window.getSelection){
+    selection = window.getSelection();
+    range = document.createRange()
+    range.selectNodeContents(todo_text)
+    selection.removeAllRanges()
+    selection.addRange(range)
+  }
+
+  todo_text.focus();
+
+  wrap_task.addEventListener("keypress", (e)=>{
+    console.log(e);
+    if(e.key == "Enter"){
+
+      let data = localStorage.getItem(wrap_task.id);
+      let obj = JSON.parse(data);
+      obj.text = todo_text.textContent;
+      let obj_to_JSON = JSON.stringify(obj);
+      localStorage.setItem(wrap_task.id, obj_to_JSON);
+      todo_text.contentEditable = "false";
+
+    }
+
+  })
+
 });
