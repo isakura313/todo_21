@@ -11,7 +11,11 @@ const {
   Month_Array,
 } = json;
 
+console.log(motivation_array.__proto__);
+
+
 const mot_speech = document.querySelector(".Mot_speech");
+console.log(mot_speech.__proto__)
 
 const select = document.getElementById("important");
 
