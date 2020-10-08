@@ -23,7 +23,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code.js" beforeDir="false" afterPath="$PROJECT_DIR$/code.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/index.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +58,7 @@
       <workItem from="1600932596567" duration="497000" />
       <workItem from="1601536022933" duration="347000" />
       <workItem from="1601538185106" duration="7465000" />
+      <workItem from="1602137380140" duration="5963000" />
     </task>
     <servers />
   </component>
@@ -82,9 +82,9 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="149" y="1" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1601540992691" />
-    <state x="301" y="0" width="838" height="1032" key="search.everywhere.popup" timestamp="1601977423156">
+    <state x="301" y="0" width="838" height="1032" key="search.everywhere.popup" timestamp="1602108227659">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="301" y="0" width="838" height="1032" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1601977423156" />
+    <state x="301" y="0" width="838" height="1032" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1602108227659" />
   </component>
 </project>

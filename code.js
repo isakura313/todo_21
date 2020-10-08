@@ -2,7 +2,7 @@
 
 import ItemDeal from "./ItemDeal";
 import { getRandom, getUniq, json } from "./nordic_random";
-
+// я тут комментарий написал
 const {
   motivation_array,
   important_color,
@@ -13,9 +13,8 @@ const {
 
 console.log(motivation_array.__proto__);
 
-
 const mot_speech = document.querySelector(".Mot_speech");
-console.log(mot_speech.__proto__)
+console.log(mot_speech.__proto__);
 
 const select = document.getElementById("important");
 
@@ -90,6 +89,7 @@ function drawOnLoad() {
 drawOnLoad();
 
 function GenerateDOM(obj) {
+  // todo удалить pen
   deals.insertAdjacentHTML(
     "afterbegin",
     `
@@ -99,7 +99,8 @@ function GenerateDOM(obj) {
   <p>  ${obj.now.getDate()} ${Month_Array[obj.now.getMonth()]} </p>
 
   <div> 
-    <i class="material-icons icon_edit ">edit</i> 
+   <!-- <i class="material-icons icon_edit">edit</i> -->
+   
    <i class="material-icons icon_delete">delete</i> 
    </div>
   </div>`
@@ -115,41 +116,54 @@ deals.addEventListener("click", (e) => {
 });
 
 deals.addEventListener("click", (e) => {
-
   // редактирование дела
-  let pen = e.target.closest(".icon_edit");
-  let wrap_task = pen.parentNode.parentNode;
-  let todo_text = wrap_task.querySelector(".todo_text");
+  // let pen = e.target.closest(".icon_edit");
+  let todo_text = e.target.closest(".todo_text");
+  let wrap_task = todo_text.parentNode;
   todo_text.contentEditable = "true";
 
-  let range, selection;
-  if(document.body.createTextRange){
-    range = document.body.createTextRange();
-    range.moveToElementText(todo_text);
-    range.select()
-  } else if(window.getSelection){
-    selection = window.getSelection();
-    range = document.createRange()
-    range.selectNodeContents(todo_text)
-    selection.removeAllRanges()
-    selection.addRange(range)
-  }
+  //получения выделения или положения курсора
 
+  /*
+  let selection = window.getSelection();
+  // Вариант с полным выделением текста
+  let range = document.createRange();
+  // создание пространства символов
+  range.selectNodeContents(todo_text);
+  // создание пространства, которое ровно содержимому переданного узла
+
+
+  selection.removeAllRanges();
+  selection.addRange(range);
   todo_text.focus();
+  */
 
-  wrap_task.addEventListener("keypress", (e)=>{
+  let selection = window.getSelection();
+  selection.collapse(todo_text, 1);
+
+  // вариант, где курсор в конце текста
+
+  // вызываем объект, который был выделен
+  // let selection = window.getSelection();
+  /*
+    показывает пространство выбранного текста
+   */
+  // let range = document.createRange(); // создать определенного рода range, т.е. некоторое пространство
+  // range.selectNodeContents(todo_text); //получаем содержимое узла
+  // selection.removeAllRanges(); // вырубаем все остальные выделения
+  // selection.addRange(range); // накидываем выбор узла
+  // selection.deleteFromDocument(); -- удалить выделенное
+  // selection.collapse(todo_text, 1);
+
+  wrap_task.addEventListener("keypress", (e) => {
     console.log(e);
-    if(e.key == "Enter"){
-
+    if (e.key == "Enter") {
       let data = localStorage.getItem(wrap_task.id);
       let obj = JSON.parse(data);
       obj.text = todo_text.textContent;
       let obj_to_JSON = JSON.stringify(obj);
       localStorage.setItem(wrap_task.id, obj_to_JSON);
       todo_text.contentEditable = "false";
-
     }
-
-  })
-
+  });
 });
