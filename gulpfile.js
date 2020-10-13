@@ -4,38 +4,59 @@ const rename = require("gulp-rename");
 const cssmin = require("gulp-cssmin");
 
 const paths = {
-    styles: {
-      src: 'src/**/*.css',
-      dest: 'styles/'
-    }
-  };
-   
-  /*
-   * Define our tasks using plain functions
-   */
-  function styles() {
-    return gulp.src(paths.styles.src)
-        .pipe(concat(paths.styles.dest))
+  styles: {
+    src: "src/**/*.css",
+    dest: "styles/",
+  },
+  build: {
+    dest: "build/",
+  },
+};
 
-        .pipe(rename(function (path) {
-          path.extname = ".css";
-        }))
+/*
+ * Define our tasks using plain functions
+ */
+function styles() {
+  return gulp
+    .src(paths.styles.src)
+    .pipe(concat(paths.styles.dest))
 
-        .pipe(cssmin())
-      .pipe(gulp.dest(paths.styles.dest));
-  }
-   
-   
-  function watch() {
-    gulp.watch(paths.styles.src, styles);
-  }
-   
+    .pipe(
+      rename(function (path) {
+        path.extname = ".css";
+      })
+    )
 
-  // var build = gulp.series(gulp.parallel(styles));
-   
+    .pipe(cssmin())
+    .pipe(gulp.dest(paths.styles.dest));
+}
 
-  exports.styles = styles;
-  exports.watch = watch;
-  // exports.build = build;
+function watch() {
+  gulp.watch(paths.styles.src, styles);
+}
 
-  // exports.default = build;
+function html() {
+  return gulp.src("index.html")
+  .pipe(gulp.dest(paths.build.dest));
+}
+
+function fonts() {
+  return gulp.src("fonts/**.*")
+  .pipe(gulp.dest(paths.build.dest + "/fonts"));
+}
+function css() {
+  return gulp.src("styles/**.*")
+  .pipe(gulp.dest(paths.build.dest + "/styles"));
+}
+function js() {
+  return gulp.src("dist/**.*")
+  .pipe(gulp.dest(paths.build.dest + "/dist"));
+}
+
+var build = gulp.series(gulp.parallel(html, fonts, css, js));
+
+exports.styles = styles;
+exports.watch = watch;
+exports.build = build;
+
+// exports.default = build;
