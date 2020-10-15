@@ -36,27 +36,33 @@ function watch() {
 }
 
 function html() {
-  return gulp.src("index.html")
-  .pipe(gulp.dest(paths.build.dest));
+  return gulp.src("index.html").pipe(gulp.dest(paths.build.dest));
 }
 
 function fonts() {
-  return gulp.src("fonts/**.*")
-  .pipe(gulp.dest(paths.build.dest + "/fonts"));
+  return gulp.src("fonts/**.*").pipe(gulp.dest(paths.build.dest + "/fonts"));
 }
 function css() {
-  return gulp.src("styles/**.*")
-  .pipe(gulp.dest(paths.build.dest + "/styles"));
+  return gulp.src("styles/**.*").pipe(gulp.dest(paths.build.dest + "/styles"));
 }
 function js() {
-  return gulp.src("dist/**.*")
-  .pipe(gulp.dest(paths.build.dest + "/dist"));
+  return gulp.src("dist/**.*").pipe(gulp.dest(paths.build.dest + "/dist"));
+}
+function image() {
+  return gulp.src("img/**.*").pipe(gulp.dest(paths.build.dest + "/img"));
 }
 
-var build = gulp.series(gulp.parallel(html, fonts, css, js));
+function move() {
+  return gulp
+    .src("build/**")
+    .pipe(gulp.dest(paths.build.dest + "../../server/build"));
+}
+
+var build = gulp.series(gulp.parallel(styles, html, fonts, css, js, image));
 
 exports.styles = styles;
 exports.watch = watch;
 exports.build = build;
+exports.move = move;
 
 // exports.default = build;

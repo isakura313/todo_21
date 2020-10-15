@@ -21,8 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="44bb9575-5a5c-48b9-94b6-565afb2e1ec4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code.js" beforeDir="false" afterPath="$PROJECT_DIR$/code.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/dist/index.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/dist/index.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/index.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/gulpfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +64,7 @@
       <workItem from="1601536022933" duration="347000" />
       <workItem from="1601538185106" duration="7465000" />
       <workItem from="1602137380140" duration="5963000" />
+      <workItem from="1602747562305" duration="4158000" />
     </task>
     <servers />
   </component>
@@ -82,9 +88,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="149" y="1" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1601540992691" />
-    <state x="301" y="0" width="838" height="1032" key="search.everywhere.popup" timestamp="1602108227659">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="301" y="23" width="838" height="911" key="search.everywhere.popup" timestamp="1602750675021">
+      <screen x="0" y="23" width="1440" height="794" />
     </state>
     <state x="301" y="0" width="838" height="1032" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1602108227659" />
+    <state x="301" y="23" width="838" height="911" key="search.everywhere.popup/0.23.1440.794@0.23.1440.794" timestamp="1602750675020" />
   </component>
 </project>
