@@ -1,4 +1,7 @@
 "use strict";
+fetch("http://localhost:3000/deals")
+  .then((response) => response.json())
+  .then((json) => drawOnLoad(json));
 
 import ItemDeal from "./ItemDeal";
 import { getRandom, getUniq, json } from "./nordic_random";
@@ -29,22 +32,6 @@ setInterval(() => {
   mot_speech.innerHTML = motivation_array[getUniq()];
 }, 5000);
 
-//получает из объект localStorage данные по ключу
-//ключ - время создания в Unix - времени
-// значение - экземпляр класса ItemDeal
-//getItem(key) – получить данные по ключу key
-//key(index) – получить ключ на заданной позиции.
-//setItem - в localStorage назначить значение
-
-//функция добавления дела
-// addTask - имя функции
-// Прочитать значние field, если не пустой input - проверка ввода
-// создаем объект todo
-// сохранение в JSON
-//сохраняем это в localStorage
-// вызвали функцию создания HTML
-//очистить field
-
 function addTask() {
   let content = field.value;
   if (!content) {
@@ -54,9 +41,20 @@ function addTask() {
     return;
   }
   let todo = new ItemDeal(content, select.value - 1);
-  let todo_to_JSON = JSON.stringify(todo);
-  localStorage.setItem(+todo.now, todo_to_JSON);
-  GenerateDOM(todo);
+
+  fetch("http://localhost:3000/deals", {
+    method: "POST",
+    body: JSON.stringify({
+      prioritet: todo.color,
+      content: todo.text,
+      create_date: `${todo.now.getFullYear()}-${todo.now.getMonth()}-${todo.now.getDate()}`,
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => GenerateDOM(json));
   field.value = "";
 }
 
@@ -66,7 +64,6 @@ document.addEventListener("keypress", (event) => {
   console.log(event);
   if (event.key == "Enter") {
     addTask();
-    //https://keycode.info/
   }
 });
 //показать сохраненные дела - общая задача
@@ -75,28 +72,23 @@ document.addEventListener("keypress", (event) => {
 //парсим из JSON
 //заново генерируем Date
 //отобразить GenerateDOM
-function drawOnLoad() {
-  for (let i = 0; i < localStorage.length; i++) {
-    //Приняв число i, метод вернёт имя по номеру ключа в localStorage
-    let lk_ley = localStorage.key(i);
-    let content = localStorage.getItem(lk_ley);
-    let todo = JSON.parse(content);
-    let tempo_data = Date.parse(todo.now);
-    todo.now = new Date(tempo_data);
-    GenerateDOM(todo);
+function drawOnLoad(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    GenerateDOM(arr[i]);
   }
 }
-drawOnLoad();
 
 function GenerateDOM(obj) {
   // todo удалить pen
+  //давайте сделайте деструктурализацию
+  let { id, prioritet, content, create_date } = obj;
   deals.insertAdjacentHTML(
     "afterbegin",
     `
-  <div class="wrap_task ${important_color[obj.color]} " id=${+obj.now}> 
+  <div class="wrap_task ${important_color[prioritet]} " id=${+id}> 
 
-  <p class="todo_text"> ${obj.text} </p>
-  <p>  ${obj.now.getDate()} ${Month_Array[obj.now.getMonth()]} </p>
+  <p class="todo_text"> ${content} </p>
+  <p>  ${create_date.substring(0, 10)} </p>
 
   <div> 
    <!-- <i class="material-icons icon_edit">edit</i> -->
@@ -111,49 +103,24 @@ deals.addEventListener("click", (e) => {
   //  удаление дела
   let trash = e.target.closest(".icon_delete");
   let wrap_task = trash.parentNode.parentNode;
+
+  fetch(`http://localhost:3000/deal/${wrap_task.id}`, {
+    method: "DELETE",
+    body: wrap_task.id,
+  }).then((response) => console.log(response));
   wrap_task.remove();
-  localStorage.removeItem(wrap_task.getAttribute("id"));
 });
 
 deals.addEventListener("click", (e) => {
-  // редактирование дела
-  // let pen = e.target.closest(".icon_edit");
+  try {
+    console.log("adasd");
+  } catch {}
   let todo_text = e.target.closest(".todo_text");
   let wrap_task = todo_text.parentNode;
   todo_text.contentEditable = "true";
 
-  //получения выделения или положения курсора
-
-  /*
-  let selection = window.getSelection();
-  // Вариант с полным выделением текста
-  let range = document.createRange();
-  // создание пространства символов
-  range.selectNodeContents(todo_text);
-  // создание пространства, которое ровно содержимому переданного узла
-
-
-  selection.removeAllRanges();
-  selection.addRange(range);
-  todo_text.focus();
-  */
-
   let selection = window.getSelection();
   selection.collapse(todo_text, 1);
-
-  // вариант, где курсор в конце текста
-
-  // вызываем объект, который был выделен
-  // let selection = window.getSelection();
-  /*
-    показывает пространство выбранного текста
-   */
-  // let range = document.createRange(); // создать определенного рода range, т.е. некоторое пространство
-  // range.selectNodeContents(todo_text); //получаем содержимое узла
-  // selection.removeAllRanges(); // вырубаем все остальные выделения
-  // selection.addRange(range); // накидываем выбор узла
-  // selection.deleteFromDocument(); -- удалить выделенное
-  // selection.collapse(todo_text, 1);
 
   wrap_task.addEventListener("keypress", (e) => {
     console.log(e);
