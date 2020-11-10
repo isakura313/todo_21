@@ -1,5 +1,5 @@
 "use strict";
-fetch("http://localhost:3000/deals")
+fetch("http://isakura3131.zonopo.ru/deals")
   .then((response) => response.json())
   .then((json) => drawOnLoad(json));
 
@@ -42,12 +42,12 @@ function addTask() {
   }
   let todo = new ItemDeal(content, select.value - 1);
 
-  fetch("http://localhost:3000/deals", {
+  fetch("http://isakura3131.zonopo.ru/deals", {
     method: "POST",
     body: JSON.stringify({
-      prioritet: todo.color,
-      content: todo.text,
-      create_date: `${todo.now.getFullYear()}-${todo.now.getMonth()}-${todo.now.getDate()}`,
+      priority: todo.color,
+      text: todo.text,
+      dt: `${todo.now.getFullYear()}-${todo.now.getMonth()}-${todo.now.getDate()}`,
     }),
     headers: {
       "Content-type": "application/json; charset=UTF-8",
@@ -81,14 +81,14 @@ function drawOnLoad(arr) {
 function GenerateDOM(obj) {
   // todo удалить pen
   //давайте сделайте деструктурализацию
-  let { id, prioritet, content, create_date } = obj;
+  let { id, priority, text, dt } = obj;
   deals.insertAdjacentHTML(
     "afterbegin",
     `
-  <div class="wrap_task ${important_color[prioritet]} " id=${+id}> 
+  <div class="wrap_task ${important_color[priority]} " id=${+id}> 
 
-  <p class="todo_text"> ${content} </p>
-  <p>  ${create_date.substring(0, 10)} </p>
+  <p class="todo_text"> ${text} </p>
+  <p>  ${dt} </p>
 
   <div> 
    <!-- <i class="material-icons icon_edit">edit</i> -->
@@ -104,7 +104,7 @@ deals.addEventListener("click", (e) => {
   let trash = e.target.closest(".icon_delete");
   let wrap_task = trash.parentNode.parentNode;
 
-  fetch(`http://localhost:3000/deal/${wrap_task.id}`, {
+  fetch(`http://isakura3131.zonopo.ru/deal/${wrap_task.id}`, {
     method: "DELETE",
     body: wrap_task.id,
   }).then((response) => console.log(response));
